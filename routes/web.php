@@ -1,6 +1,12 @@
 <?php
 
+namespace App\Http\Controllers\Api;
+
 use Illuminate\Support\Facades\Route;
+ 
+use App\Http\Controllers\Controller;
+
+use App\Http\Controllers\ArtProfilesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -20,5 +28,8 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+
+Route::resource('/profiles', ArtProfilesController::class);
 
 require __DIR__.'/auth.php';
